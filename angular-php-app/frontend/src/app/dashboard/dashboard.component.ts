@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Policy} from '.././policy';
+import {Categoria} from '../categoria';
 
 
 
@@ -11,6 +12,7 @@ import { Policy} from '.././policy';
 })
 export class DashboardComponent implements OnInit {
   policies:  Policy[];
+  Categoria: Categoria[];
   selectedPolicy:  Policy  = { id :  null , number: null, amount: null};
 
   constructor( private apiService: ApiService) { }
@@ -20,6 +22,12 @@ export class DashboardComponent implements OnInit {
       this.policies = policies;
       console.log(this.policies);
     });
+
+    this.apiService.readCategoria().subscribe((categoria: Categoria[]) => {
+      this.Categoria = categoria;
+      console.log(this.Categoria);
+    });
+
   }
 
   createOrUpdatePolicy(form) {

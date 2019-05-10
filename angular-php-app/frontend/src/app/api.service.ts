@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Policy} from './policy';
+import {Categoria} from './categoria';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -30,5 +31,8 @@ export class ApiService {
     return this.httpClient.delete<Policy>(`${this.PHP_API_SERVER}/api/delete.php/?id=${id}`);
   }
 
+  readCategoria(): Observable<Categoria[]> {
+    return this.httpClient.get<Categoria[]>(`${this.PHP_API_SERVER}/api/categoria/categoria.php`);
+  }
 
 }

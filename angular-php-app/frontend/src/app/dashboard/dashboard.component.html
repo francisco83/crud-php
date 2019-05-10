@@ -30,3 +30,18 @@
     <br>
     <input type="button" (click)="createOrUpdatePolicy(f)" value="Create or Update Policy">
   </form>
+
+
+
+
+  <table border='1' width='100%' style='border-collapse: collapse;'>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+    </tr>
+
+    <tr *ngFor="let categoria of categoria">
+      <td>{{ categoria.Id }}</td>
+      <td>{{ categoria.nombre }}</td>
+    </tr>
+  </table>

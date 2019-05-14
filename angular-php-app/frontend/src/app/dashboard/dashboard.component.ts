@@ -12,7 +12,7 @@ import {Categoria} from '../categoria';
 })
 export class DashboardComponent implements OnInit {
   policies:  Policy[];
-  Categoria: Categoria[];
+  categorias: Categoria[];
   selectedPolicy:  Policy  = { id :  null , number: null, amount: null};
 
   constructor( private apiService: ApiService) { }
@@ -23,9 +23,9 @@ export class DashboardComponent implements OnInit {
       console.log(this.policies);
     });
 
-    this.apiService.readCategoria().subscribe((categoria: Categoria[]) => {
-      this.Categoria = categoria;
-      console.log(this.Categoria);
+    this.apiService.readCategoria().subscribe((categorias: Categoria[]) => {
+      this.categorias = categorias;
+      console.log(this.categorias);
     });
 
   }

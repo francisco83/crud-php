@@ -2,9 +2,9 @@
 /**
  * Returns the list of policies.
  */
- require './categoria/database.php';
+ require '../database.php';
 
-$policies = [];
+$categorias = [];
 $sql = "SELECT id, nombre FROM categoria";
 
  if($result = mysqli_query($con,$sql))
@@ -12,12 +12,12 @@ $sql = "SELECT id, nombre FROM categoria";
    $i = 0;
    while($row = mysqli_fetch_assoc($result))
    {
-     $policies[$i]['id']    = $row['id'];
-     $policies[$i]['nombre'] = $row['nombre'];
+     $categorias[$i]['id']    = $row['id'];
+     $categorias[$i]['nombre'] = $row['nombre'];
      $i++;
    }
 
-   echo json_encode($policies);
+   echo json_encode($categorias);
  }
  else
  {
